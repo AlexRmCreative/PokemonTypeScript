@@ -1,5 +1,6 @@
 ﻿import { Pokemon } from './clases/pokemon';
 import { Jugador } from './clases/jugador';
+import { BatallaPokemon } from './batallaPokemon';
 
 export function Juego() {
     const charmander: Pokemon = new Pokemon("Charmander", "Fuego");
@@ -17,4 +18,8 @@ export function Juego() {
         else
             console.log(`♦ ${pokemon.Nombre} ←`);
     });
+
+
+    console.log();
+    BatallaPokemon(pokemonsDisponibles);
 }

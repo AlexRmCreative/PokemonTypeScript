@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Juego = void 0;
 const pokemon_1 = require("./clases/pokemon");
 const jugador_1 = require("./clases/jugador");
+const batallaPokemon_1 = require("./batallaPokemon");
 function Juego() {
     const charmander = new pokemon_1.Pokemon("Charmander", "Fuego");
     const squirtle = new pokemon_1.Pokemon("Squirtle", "Agua");
@@ -18,6 +19,8 @@ function Juego() {
         else
             console.log(`♦ ${pokemon.Nombre} ←`);
     });
+    console.log();
+    (0, batallaPokemon_1.BatallaPokemon)(pokemonsDisponibles);
 }
 exports.Juego = Juego;
 //# sourceMappingURL=juego.js.map
