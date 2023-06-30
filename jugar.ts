@@ -7,3 +7,4 @@ for (let i = 0; i < 3; i++) {
 }
 Juego();
 readlineSync.question('Presiona Enter para salir...');
+console.clear();

@@ -12,8 +12,11 @@ function Juego() {
     let selector = 0;
     console.log(`Hola ${jugador.Nombre}, Bienvenido a esta batalla Pokémon desarollada con TypeScript`);
     console.log(`Elige un pokémon`);
-    pokemonsDisponibles.forEach((pokemon) => {
-        console.log(`♦ ${pokemon.Nombre}👈`);
+    pokemonsDisponibles.forEach((pokemon, index) => {
+        if (index != selector)
+            console.log(`♦ ${pokemon.Nombre}`);
+        else
+            console.log(`♦ ${pokemon.Nombre} ←`);
     });
 }
 exports.Juego = Juego;

@@ -12,7 +12,9 @@ export function Juego() {
     console.log(`Hola ${jugador.Nombre}, Bienvenido a esta batalla Pokémon desarollada con TypeScript`);
     console.log(`Elige un pokémon`);
 
-    pokemonsDisponibles.forEach((pokemon: Pokemon) => {
-        console.log(`♦ ${pokemon.Nombre}👈`);
+    pokemonsDisponibles.forEach((pokemon: Pokemon, index: number) => {
+        if (index != selector) console.log(`♦ ${pokemon.Nombre}`);
+        else
+            console.log(`♦ ${pokemon.Nombre} ←`);
     });
 }
