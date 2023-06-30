@@ -5,7 +5,7 @@ function BatallaPokemon(pokemon) {
     do {
         for (let i = 0; i < pokemon.length; i++) {
             console.log(`pokemon siendo eliminado: ${pokemon[i].Nombre}`);
-            pokemon.slice(i, i);
+            pokemon.splice(i, 1);
         }
     } while (pokemon.length > 1);
 }
