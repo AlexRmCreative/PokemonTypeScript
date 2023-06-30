@@ -1,5 +1,4 @@
-import * as readlineSync from 'readline-sync';
-import { Pokemon } from './clases/pokemon';
+﻿import { Pokemon } from './clases/pokemon';
 import { Jugador } from './clases/jugador';
 
 export function Juego() {
@@ -8,9 +7,12 @@ export function Juego() {
     const bulbasaur: Pokemon = new Pokemon("Bulbasaur", "Planta");
     let pokemonsDisponibles: Pokemon[] = [charmander, squirtle, bulbasaur];
     const jugador: Jugador = new Jugador();
+    let selector: number = 0;
 
-    console.log(jugador.Nombre);
-/*    pokemonsDisponibles.forEach((pokemon: Pokemon) => {
-        console.log(pokemon.Nombre);
-    });*/
+    console.log(`Hola ${jugador.Nombre}, Bienvenido a esta batalla Pokémon desarollada con TypeScript`);
+    console.log(`Elige un pokémon`);
+
+    pokemonsDisponibles.forEach((pokemon: Pokemon) => {
+        console.log(`♦ ${pokemon.Nombre}👈`);
+    });
 }

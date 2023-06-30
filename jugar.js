@@ -25,6 +25,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const readlineSync = __importStar(require("readline-sync"));
 const juego_1 = require("./juego");
+//espacios
+for (let i = 0; i < 5; i++) {
+    console.log();
+}
 (0, juego_1.Juego)();
 readlineSync.question('Presiona Enter para salir...');
 //# sourceMappingURL=jugar.js.map

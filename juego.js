@@ -9,10 +9,12 @@ function Juego() {
     const bulbasaur = new pokemon_1.Pokemon("Bulbasaur", "Planta");
     let pokemonsDisponibles = [charmander, squirtle, bulbasaur];
     const jugador = new jugador_1.Jugador();
-    console.log(jugador.Nombre);
-    /*    pokemonsDisponibles.forEach((pokemon: Pokemon) => {
-            console.log(pokemon.Nombre);
-        });*/
+    let selector = 0;
+    console.log(`Hola ${jugador.Nombre}, Bienvenido a esta batalla Pokémon desarollada con TypeScript`);
+    console.log(`Elige un pokémon`);
+    pokemonsDisponibles.forEach((pokemon) => {
+        console.log(`♦ ${pokemon.Nombre}👈`);
+    });
 }
 exports.Juego = Juego;
 //# sourceMappingURL=juego.js.map
