@@ -3,9 +3,9 @@ import { Jugador } from './clases/jugador';
 import { BatallaPokemon } from './batallaPokemon';
 
 export function Juego() {
-    const charmander: Pokemon = new Pokemon("Charmander", "Fuego");
-    const squirtle: Pokemon = new Pokemon("Squirtle", "Agua");
-    const bulbasaur: Pokemon = new Pokemon("Bulbasaur", "Planta");
+    const charmander: Pokemon = new Pokemon("Charmander", "Fuego", "Char-chaar!");
+    const squirtle: Pokemon = new Pokemon("Squirtle", "Agua", "Squirtle, Squirtle!");
+    const bulbasaur: Pokemon = new Pokemon("Bulbasaur", "Planta", "bulbasaur...");
     let pokemonsDisponibles: Pokemon[] = [charmander, squirtle, bulbasaur];
     const jugador: Jugador = new Jugador();
     let selector: number = 0;

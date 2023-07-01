@@ -2,12 +2,23 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BatallaPokemon = void 0;
 function BatallaPokemon(pokemon) {
+    let turno = 0;
+    console.log(pokemon[1].Nombre);
+    pokemon[1].Aranazo(pokemon[0]);
+    if (pokemon[0].Velocidad < pokemon[1].Velocidad)
+        turno = 1;
+    /*//Mientras hayan pokemons la batalla continuara
     do {
-        for (let i = 0; i < pokemon.length; i++) {
-            console.log(`pokemon siendo eliminado: ${pokemon[i].Nombre}`);
-            pokemon.splice(i, 1);
+        //Comprueba si la vida de algun pokemon ha bajado a 0
+        for (let i = 0; i < pokemon.length;) {
+            pokemon[i].Vida < 0 ? pokemon.splice(i, 1) : i++;
         }
-    } while (pokemon.length > 1);
+        //Cambiar de turno
+        turno == pokemon.length ? turno = 0 : turno++;
+    }
+    while (pokemon.length > 1)*/
+    console.log(`${pokemon[0].Nombre} gana!`);
+    pokemon[0].HacerRuido();
 }
 exports.BatallaPokemon = BatallaPokemon;
 //# sourceMappingURL=batallaPokemon.js.map
