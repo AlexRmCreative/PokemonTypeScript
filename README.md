@@ -20,7 +20,7 @@ npm install
 5. Ejecute el siguiente comando:
 
 ```shell
-node jugar.js
+npm start
 ```
 Esto ejecutará el programa y dará inicio a la batalla Pokémon🔥🌱💧.
 
