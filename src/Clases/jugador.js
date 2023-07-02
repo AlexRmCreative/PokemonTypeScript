@@ -29,11 +29,13 @@ function NumAleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 class Jugador {
-    constructor() {
+    constructor(nombre = "") {
         this.Nombre = "";
         this.Pokemons = [];
-        this.Nombre = readlineSync.question('Ingresa tu nombre: ');
+        if (!nombre)
+            nombre = readlineSync.question('Ingresa tu nombre: ');
+        this.Nombre = nombre;
     }
 }
 exports.Jugador = Jugador;
-//# sourceMappingURL=jugador.js.map
+//# sourceMappingURL=Jugador.js.map

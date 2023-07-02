@@ -1,5 +1,5 @@
-﻿import { Pokemon } from './clases/pokemon';
-import { Jugador } from './clases/jugador';
+﻿import { Pokemon } from '../Clases/Pokemon';
+import { Jugador } from '../Clases/Jugador';
 import { BatallaPokemon } from './batallaPokemon';
 
 export function Juego() {
@@ -18,7 +18,6 @@ export function Juego() {
         else
             console.log(`♦ ${pokemon.Nombre} ←`);
     });
-
 
     console.log();
     BatallaPokemon(pokemonsDisponibles);

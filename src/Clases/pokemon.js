@@ -50,4 +50,4 @@ class Pokemon {
     }
 }
 exports.Pokemon = Pokemon;
-//# sourceMappingURL=pokemon.js.map
+//# sourceMappingURL=Pokemon.js.map

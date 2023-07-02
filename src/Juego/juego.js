@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Juego = void 0;
-const pokemon_1 = require("./clases/pokemon");
-const jugador_1 = require("./clases/jugador");
+const Pokemon_1 = require("../Clases/Pokemon");
+const Jugador_1 = require("../Clases/Jugador");
 const batallaPokemon_1 = require("./batallaPokemon");
 function Juego() {
-    const charmander = new pokemon_1.Pokemon("Charmander", "Fuego", "Char-chaar!");
-    const squirtle = new pokemon_1.Pokemon("Squirtle", "Agua", "Squirtle, Squirtle!");
-    const bulbasaur = new pokemon_1.Pokemon("Bulbasaur", "Planta", "bulbasaur...");
+    const charmander = new Pokemon_1.Pokemon("Charmander", "Fuego", "Char-chaar!");
+    const squirtle = new Pokemon_1.Pokemon("Squirtle", "Agua", "Squirtle, Squirtle!");
+    const bulbasaur = new Pokemon_1.Pokemon("Bulbasaur", "Planta", "bulbasaur...");
     let pokemonsDisponibles = [charmander, squirtle, bulbasaur];
-    const jugador = new jugador_1.Jugador();
+    const jugador = new Jugador_1.Jugador("KAKA");
     let selector = 0;
     console.log(`Hola ${jugador.Nombre}, Bienvenido a esta batalla Pokémon desarollada con TypeScript`);
     console.log(`Elige un pokémon`);

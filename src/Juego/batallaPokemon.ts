@@ -1,5 +1,5 @@
-﻿import { Pokemon } from './clases/pokemon';
-import { Jugador } from './clases/jugador';
+﻿import { Pokemon } from '../Clases/Pokemon';
+import { Jugador } from '../Clases/Jugador';
 
 export function BatallaPokemon(pokemon: Pokemon[]) {
     let turno = 0;
