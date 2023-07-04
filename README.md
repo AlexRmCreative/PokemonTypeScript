@@ -1,6 +1,6 @@
 # PokemonTypeScript 🐅 🐊 🐳
 
-Este repositorio contiene una batalla de animales ("Pokémon") implementada en TypeScript utilizando programación orientada a objetos (POO).💻
+Este repositorio contiene una batalla de Pokémons implementada en TypeScript utilizando nodeJs y programación orientada a objetos.💻
 
 ## Inicio rápido 👨‍💻 👩‍💻
 
