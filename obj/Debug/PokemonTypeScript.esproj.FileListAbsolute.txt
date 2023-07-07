@@ -1,2 +1,0 @@
-C:\Users\aleja\Desktop\EjerciciosEsplai2023\ProyectosC#\PokemonTypeScript\PokemonTypeScript\obj\Debug\PokemonTypeScript.esproj.SuggestedBindingRedirects.cache
-C:\Users\aleja\Desktop\EjerciciosEsplai2023\ProyectosC#\PokemonTypeScript\PokemonTypeScript\obj\Debug\PokemonTypeScript.esproj.CoreCompileInputs.cache
