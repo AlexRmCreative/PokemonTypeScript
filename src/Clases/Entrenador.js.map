@@ -1,1 +1,1 @@
-{"version":3,"file":"Entrenador.js","sourceRoot":"","sources":["Entrenador.ts"],"names":[],"mappings":";;;AAEA,MAAa,UAAU;IAGnB,YAAY,YAAuB,EAAE;QADrC,cAAS,GAAc,EAAE,CAAC;QAGtB,IAAI,CAAC,SAAS,GAAG,SAAS,CAAC;IAC/B,CAAC;CACJ;AAPD,gCAOC"}
+{"version":3,"file":"Entrenador.js","sourceRoot":"","sources":["Entrenador.ts"],"names":[],"mappings":";;;AAGA,MAAa,UAAU;IAInB,YAAY,YAAuB,EAAE;QAFrC,WAAM,GAAW,EAAE,CAAC;QACpB,cAAS,GAAc,EAAE,CAAC;QAGtB,IAAI,CAAC,SAAS,GAAG,SAAS,CAAC;IAC/B,CAAC;IAED,cAAc;QACV,wBAAwB;IAC5B,CAAC;CACJ;AAZD,gCAYC"}

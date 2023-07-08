@@ -10,6 +10,10 @@ export class Pokemon
         this.Nombre = nombre;
         this.Vida = vida;
     }
+    SetNombre(nombre: string)
+    {
+        this.Nombre = nombre;
+    }
 }
 
 export class Bulbasaur extends Pokemon
@@ -17,6 +21,11 @@ export class Bulbasaur extends Pokemon
     constructor()
     {
         super(chalk.green("Bulbasaur"), 100);
+    }
+
+    override SetNombre(nombre: string)
+    {
+        this.Nombre = chalk.green(nombre);
     }
 }
 
@@ -26,6 +35,11 @@ export class Charmander extends Pokemon
     {
         super(chalk.red("Charmander"), 100);
     }
+
+    override SetNombre(nombre: string)
+    {
+        this.Nombre = chalk.red(nombre);
+    }
 }
 
 export class Squirtle extends Pokemon
@@ -33,5 +47,10 @@ export class Squirtle extends Pokemon
     constructor()
     {
         super(chalk.blue("Squirtle"), 100);
+    }
+
+    override SetNombre(nombre: string)
+    {
+        this.Nombre = chalk.blue(nombre);
     }
 }

@@ -1,5 +1,5 @@
 import inquirer, { ListQuestion } from 'inquirer';
-import { numAleatorio, writeDelay } from '../AdditionalFunctions/Lib';
+import { nuevoNombre, numAleatorio, writeDelay } from '../AdditionalFunctions/Lib';
 import { Pokemon, Charmander, Bulbasaur, Squirtle } from '../Clases/Pokemon';
 import { BatallaPokemon } from './BatallaPokemon';
 import { Entrenador } from '../Clases/Entrenador';
@@ -14,21 +14,24 @@ let pokemonesDisponibles = [
     { name: squirtle.Nombre, value: squirtle }
 ];
 
-const jugador1 = new Entrenador();
+const jugador = new Entrenador();
 const entrenadorIA = new Entrenador();
+entrenadorIA.Nombre = "AlexRmCreative"
 
 const textDelay = 35;
 
 export async function Juego(): Promise<void> {
+    jugador.Nombre = await nuevoNombre("Ingresa tu nombre: ");
     //Jugador elige pokemon
-    jugador1.Pokemones.push(await ElegirPokemon(pokemonesDisponibles));
+    jugador.Pokemones.push(await ElegirPokemon(pokemonesDisponibles));
     //Entrenador(IA) elige (aleatoriamente) a un pokemon disponible
     entrenadorIA.Pokemones.push(pokemonesDisponibles[numAleatorio(pokemonesDisponibles.length)].value);
-
-    await BatallaPokemon(jugador1.Pokemones, entrenadorIA.Pokemones);
+    //Comienza la batalla pokemon!
+    await BatallaPokemon(jugador, entrenadorIA);
   }
   
   async function ElegirPokemon(lista: {}[]): Promise<Pokemon> {
+    //Utilizando inquirer que creara un menu de seleccion de tipo lista. Más info en: https://www.npmjs.com/package/inquirer/v/8.2.4
     const question: ListQuestion = {
       type: 'list',
       name: 'pokemon',
@@ -42,10 +45,15 @@ export async function Juego(): Promise<void> {
       // Eliminar el pokemon seleccionado del array pokemonesDisponibles
       pokemonesDisponibles = pokemonesDisponibles.filter(pokemon => pokemon.value !== pokemonSeleccionado);
       await writeDelay(`¡Has seleccionado a ${pokemonSeleccionado.Nombre}!\n`, textDelay);
+      
+      //Nombrar al pokemon sin que el nombre sea vacio
+      //(los nombres pueden de disponer de simbolos raros y espacios entre letras)
+      let nombrarPokemon: string = (await nuevoNombre(`Dale un nombre a ${pokemonSeleccionado.Nombre}: `)).trim();
+      if(nombrarPokemon != '') pokemonSeleccionado.SetNombre(nombrarPokemon);
       return pokemonSeleccionado;
     } catch (error) {
       console.error('Ocurrió un error:', error);
-      throw error; // Lanzar el error para propagarlo
+      throw error;
     }
   }
   
