@@ -1,7 +1,7 @@
 import inquirer, { ListQuestion } from 'inquirer';
 import { nuevoNombre, numAleatorio, writeDelay } from '../AdditionalFunctions/Lib';
 import { Pokemon, Charmander, Bulbasaur, Squirtle } from '../Clases/Pokemon';
-import { BatallaPokemon } from './BatallaPokemon';
+import { CombatePokemon } from './BatallaPokemon';
 import { Entrenador } from '../Clases/Entrenador';
 
 let pokemonSeleccionado = new Pokemon("", 0);
@@ -27,7 +27,7 @@ export async function Juego(): Promise<void> {
     //Entrenador(IA) elige (aleatoriamente) a un pokemon disponible
     entrenadorIA.Pokemones.push(pokemonesDisponibles[numAleatorio(pokemonesDisponibles.length)].value);
     //Comienza la batalla pokemon!
-    await BatallaPokemon(jugador, entrenadorIA);
+    await CombatePokemon(jugador, entrenadorIA);
   }
   
   async function ElegirPokemon(lista: {}[]): Promise<Pokemon> {

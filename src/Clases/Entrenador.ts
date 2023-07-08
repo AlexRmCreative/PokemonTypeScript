@@ -5,12 +5,9 @@ export class Entrenador
 {
     Nombre: string = "";
     Pokemones: Pokemon[] = [];
+    Pokemon: Pokemon = new Pokemon("");
     constructor(pokemones: Pokemon[] = [])
     {
         this.Pokemones = pokemones;
-    }
-
-    IngresarNombre(){
-        //this.Nombre = Readline
     }
 }
