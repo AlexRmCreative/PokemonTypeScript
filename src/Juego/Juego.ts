@@ -4,7 +4,7 @@ import { Pokemon, Charmander, Bulbasaur, Squirtle } from '../Clases/Pokemon';
 import { CombatePokemon } from './BatallaPokemon';
 import { Entrenador } from '../Clases/Entrenador';
 
-let pokemonSeleccionado = new Pokemon("", 0);
+let pokemonSeleccionado = new Pokemon("");
 const charmander = new Charmander();
 const bulbasaur = new Bulbasaur();
 const squirtle = new Squirtle();

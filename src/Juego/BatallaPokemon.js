@@ -9,13 +9,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.BatallaPokemon = void 0;
+exports.CombatePokemon = void 0;
 const Lib_1 = require("../AdditionalFunctions/Lib");
-function BatallaPokemon(P1, P2) {
+function CombatePokemon(P1, P2) {
     return __awaiter(this, void 0, void 0, function* () {
         let entrenadores = [P1, P2];
         const nombresP1 = P1.Pokemones.map((pokemon) => pokemon.Nombre).join(', ');
         const nombresP2 = P2.Pokemones.map((pokemon) => pokemon.Nombre).join(', ');
+        yield PresentacionCombate(entrenadores);
+    });
+}
+exports.CombatePokemon = CombatePokemon;
+function PresentacionCombate(entrenadores) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let P1 = entrenadores[0];
+        let P2 = entrenadores[1];
         console.clear();
         console.log(`${P1.Nombre} vs ${P2.Nombre}\n`);
         for (const element of entrenadores) {
@@ -23,5 +31,4 @@ function BatallaPokemon(P1, P2) {
         }
     });
 }
-exports.BatallaPokemon = BatallaPokemon;
 //# sourceMappingURL=BatallaPokemon.js.map

@@ -1,4 +1,3 @@
-import { Readline } from "readline/promises";
 import { Pokemon } from "./Pokemon";
 
 export class Entrenador

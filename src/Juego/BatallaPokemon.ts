@@ -6,7 +6,6 @@ export async function CombatePokemon(P1: Entrenador, P2: Entrenador): Promise<vo
     const nombresP1 = P1.Pokemones.map((pokemon) => pokemon.Nombre).join(', ');
     const nombresP2 = P2.Pokemones.map((pokemon) => pokemon.Nombre).join(', ');
     await PresentacionCombate(entrenadores);
-    for (const element of entrenadores)
 }
 
 async function PresentacionCombate(entrenadores: Entrenador[])

@@ -18,7 +18,7 @@ const Lib_1 = require("../AdditionalFunctions/Lib");
 const Pokemon_1 = require("../Clases/Pokemon");
 const BatallaPokemon_1 = require("./BatallaPokemon");
 const Entrenador_1 = require("../Clases/Entrenador");
-let pokemonSeleccionado = new Pokemon_1.Pokemon("", 0);
+let pokemonSeleccionado = new Pokemon_1.Pokemon("");
 const charmander = new Pokemon_1.Charmander();
 const bulbasaur = new Pokemon_1.Bulbasaur();
 const squirtle = new Pokemon_1.Squirtle();
@@ -39,7 +39,7 @@ function Juego() {
         //Entrenador(IA) elige (aleatoriamente) a un pokemon disponible
         entrenadorIA.Pokemones.push(pokemonesDisponibles[(0, Lib_1.numAleatorio)(pokemonesDisponibles.length)].value);
         //Comienza la batalla pokemon!
-        yield (0, BatallaPokemon_1.BatallaPokemon)(jugador, entrenadorIA);
+        yield (0, BatallaPokemon_1.CombatePokemon)(jugador, entrenadorIA);
     });
 }
 exports.Juego = Juego;
