@@ -3,9 +3,12 @@ import { Entrenador } from "../Clases/Entrenador";
 
 export async function CombatePokemon(P1: Entrenador, P2: Entrenador): Promise<void> {
     let entrenadores: Entrenador[] = [P1, P2];
-    const nombresP1 = P1.Pokemones.map((pokemon) => pokemon.Nombre).join(', ');
-    const nombresP2 = P2.Pokemones.map((pokemon) => pokemon.Nombre).join(', ');
+    let turno = 0;
     await PresentacionCombate(entrenadores);
+    //El primer turno lo tendra el entrenador con el pokemon mas veloz
+    if(entrenadores[1].Pokemon.Velocidad > entrenadores[0].Pokemon.Velocidad){
+        turno = 1;
+    }
 }
 
 async function PresentacionCombate(entrenadores: Entrenador[])

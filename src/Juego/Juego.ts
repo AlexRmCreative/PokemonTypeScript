@@ -22,12 +22,14 @@ const textDelay = 35;
 
 export async function Juego(): Promise<void> {
     jugador.Nombre = await nuevoNombre("Ingresa tu nombre: ");
-    //Jugador elige pokemon
+    //Jugador elige pokemon (y lo guarda en su array de pokemones)
     jugador.Pokemones.push(await ElegirPokemon(pokemonesDisponibles));
     //Entrenador(IA) elige (aleatoriamente) a un pokemon disponible
     entrenadorIA.Pokemones.push(pokemonesDisponibles[numAleatorio(pokemonesDisponibles.length)].value);
-    //Comienza la batalla pokemon!
-    await CombatePokemon(jugador, entrenadorIA);
+    jugador.OrdenarPokemones();
+    entrenadorIA.OrdenarPokemones();
+    console.log(`TIPOS: ${jugador.Pokemon.Tipo}`);
+    console.log(`TIPOS: ${entrenadorIA.Pokemon.Tipo}`);
   }
   
   async function ElegirPokemon(lista: {}[]): Promise<Pokemon> {
@@ -46,7 +48,7 @@ export async function Juego(): Promise<void> {
       pokemonesDisponibles = pokemonesDisponibles.filter(pokemon => pokemon.value !== pokemonSeleccionado);
       await writeDelay(`¡Has seleccionado a ${pokemonSeleccionado.Nombre}!\n`, textDelay);
       
-      //Nombrar al pokemon sin que el nombre sea vacio
+      //Nombrar al pokemon sin que el nombre sea vacio (Si el nombre es vacio, el nombre del pokemon no sera afectado)
       //(los nombres pueden de disponer de simbolos raros y espacios entre letras)
       let nombrarPokemon: string = (await nuevoNombre(`Dale un nombre a ${pokemonSeleccionado.Nombre}: `)).trim();
       if(nombrarPokemon != '') pokemonSeleccionado.SetNombre(nombrarPokemon);

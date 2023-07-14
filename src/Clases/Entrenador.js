@@ -8,6 +8,14 @@ class Entrenador {
         this.Pokemones = [];
         this.Pokemon = new Pokemon_1.Pokemon("");
         this.Pokemones = pokemones;
+        this.Pokemon = pokemones[0];
+    }
+    CambiarOrden() {
+        if (this.Pokemones.length > 1) {
+        }
+        else {
+            this.Pokemon = this.Pokemones[0];
+        }
     }
 }
 exports.Entrenador = Entrenador;

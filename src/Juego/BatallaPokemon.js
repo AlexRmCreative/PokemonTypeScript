@@ -14,9 +14,12 @@ const Lib_1 = require("../AdditionalFunctions/Lib");
 function CombatePokemon(P1, P2) {
     return __awaiter(this, void 0, void 0, function* () {
         let entrenadores = [P1, P2];
-        const nombresP1 = P1.Pokemones.map((pokemon) => pokemon.Nombre).join(', ');
-        const nombresP2 = P2.Pokemones.map((pokemon) => pokemon.Nombre).join(', ');
+        let turno = 0;
         yield PresentacionCombate(entrenadores);
+        //El primer turno lo tendra el entrenador con el pokemon mas veloz
+        if (entrenadores[1].Pokemon.Velocidad > entrenadores[0].Pokemon.Velocidad) {
+            turno = 1;
+        }
     });
 }
 exports.CombatePokemon = CombatePokemon;

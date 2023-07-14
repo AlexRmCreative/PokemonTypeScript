@@ -16,7 +16,6 @@ exports.Juego = void 0;
 const inquirer_1 = __importDefault(require("inquirer"));
 const Lib_1 = require("../AdditionalFunctions/Lib");
 const Pokemon_1 = require("../Clases/Pokemon");
-const BatallaPokemon_1 = require("./BatallaPokemon");
 const Entrenador_1 = require("../Clases/Entrenador");
 let pokemonSeleccionado = new Pokemon_1.Pokemon("");
 const charmander = new Pokemon_1.Charmander();
@@ -34,12 +33,14 @@ const textDelay = 35;
 function Juego() {
     return __awaiter(this, void 0, void 0, function* () {
         jugador.Nombre = yield (0, Lib_1.nuevoNombre)("Ingresa tu nombre: ");
-        //Jugador elige pokemon
+        //Jugador elige pokemon (y lo guarda en su array de pokemones)
         jugador.Pokemones.push(yield ElegirPokemon(pokemonesDisponibles));
         //Entrenador(IA) elige (aleatoriamente) a un pokemon disponible
         entrenadorIA.Pokemones.push(pokemonesDisponibles[(0, Lib_1.numAleatorio)(pokemonesDisponibles.length)].value);
-        //Comienza la batalla pokemon!
-        yield (0, BatallaPokemon_1.CombatePokemon)(jugador, entrenadorIA);
+        jugador.CambiarOrden();
+        entrenadorIA.CambiarOrden();
+        console.log(`TIPOS: ${jugador.Pokemon.Tipo}`);
+        console.log(`TIPOS: ${entrenadorIA.Pokemon.Tipo}`);
     });
 }
 exports.Juego = Juego;
@@ -58,7 +59,7 @@ function ElegirPokemon(lista) {
             // Eliminar el pokemon seleccionado del array pokemonesDisponibles
             pokemonesDisponibles = pokemonesDisponibles.filter(pokemon => pokemon.value !== pokemonSeleccionado);
             yield (0, Lib_1.writeDelay)(`¡Has seleccionado a ${pokemonSeleccionado.Nombre}!\n`, textDelay);
-            //Nombrar al pokemon sin que el nombre sea vacio
+            //Nombrar al pokemon sin que el nombre sea vacio (Si el nombre es vacio, el nombre del pokemon no sera afectado)
             //(los nombres pueden de disponer de simbolos raros y espacios entre letras)
             let nombrarPokemon = (yield (0, Lib_1.nuevoNombre)(`Dale un nombre a ${pokemonSeleccionado.Nombre}: `)).trim();
             if (nombrarPokemon != '')
