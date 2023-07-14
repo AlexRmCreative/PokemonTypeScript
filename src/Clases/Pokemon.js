@@ -1,20 +1,11 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Bulbasaur = exports.Squirtle = exports.Charmander = exports.Pokemon = void 0;
 const chalk_1 = __importDefault(require("chalk"));
-const Lib_1 = require("../AdditionalFunctions/Lib");
+const Habilidad_1 = require("./Habilidad");
 //Tipo de pokemon = key, superEfectivo = 0, poco efectivo = 1, no es efectivo = 2
 const Tipos = {
     /*0*/ "Normal": [[], ["Roca", "Acero"], ["Fantasma"]],
@@ -37,8 +28,7 @@ const Tipos = {
     /*17*/ "Hada": [["Lucha", "Dragon", "Siniestro"], ["Veneno", "Acero", "Fuego"]]
 };
 class Pokemon {
-    //#endregion
-    constructor(nombre) {
+    constructor(nombre = "") {
         this.Tipo = Object.keys(Tipos)[0];
         this.Efectividad = Tipos["Normal"];
         this.Vida = 44;
@@ -47,19 +37,13 @@ class Pokemon {
         this.AtaqueEspecial = 58;
         this.DefensaEspecial = 59;
         this.Velocidad = 51;
+        //#endregion
+        this.Placaje = new Habilidad_1.HabilidadPokemon("Placaje", this, this.Tipo);
+        this.Habilidades = [this.Placaje];
         this.Nombre = nombre;
     }
     SetNombre(nombre) {
         this.Nombre = nombre;
-    }
-    //veneno: Si la ronda actual es menor a la ronda final, aplicar efecto de veneno al pokemon envenado
-    Placaje() {
-        return __awaiter(this, void 0, void 0, function* () {
-            const TipoHabilidad = Tipos[0];
-            // Resto del código de la función Placaje
-            yield (0, Lib_1.writeDelay)(`${this.Nombre} utiliza ${chalk_1.default.grey("Placaje")}...`, 30);
-            yield (0, Lib_1.writeDelay)(`Daño realizado: ${this.Ataque}`, 30);
-        });
     }
 }
 exports.Pokemon = Pokemon;

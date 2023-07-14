@@ -1,3 +1,4 @@
+import { Habilidad } from "./Habilidad";
 import { Pokemon } from "./Pokemon";
 
 //Estados en los que puede estar un entrenador
@@ -15,19 +16,9 @@ export class Entrenador
         this.Estado = Estados[0];
     }
 
-    UsarHabilidad(funcion: Function, estado: string){
+    UsarHabilidad(habilidad: Habilidad, estado: string){
         if (!Estados.includes(estado)) {
             throw new Error(`Estado inválido. Los estados válidos son: ${Estados.join(", ")}`);
-        }
-    }
-    OrdenarPokemones()
-    {
-        if(this.Pokemones.length > 1)
-        {
-            //
-        }
-        else{
-            this.Pokemon = this.Pokemones[0];
         }
     }
 }

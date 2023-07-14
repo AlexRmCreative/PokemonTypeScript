@@ -26,8 +26,6 @@ export async function Juego(): Promise<void> {
     jugador.Pokemones.push(await ElegirPokemon(pokemonesDisponibles));
     //Entrenador(IA) elige (aleatoriamente) a un pokemon disponible
     entrenadorIA.Pokemones.push(pokemonesDisponibles[numAleatorio(pokemonesDisponibles.length)].value);
-    jugador.OrdenarPokemones();
-    entrenadorIA.OrdenarPokemones();
     console.log(`TIPOS: ${jugador.Pokemon.Tipo}`);
     console.log(`TIPOS: ${entrenadorIA.Pokemon.Tipo}`);
   }

@@ -9,6 +9,7 @@ export async function CombatePokemon(P1: Entrenador, P2: Entrenador): Promise<vo
     if(entrenadores[1].Pokemon.Velocidad > entrenadores[0].Pokemon.Velocidad){
         turno = 1;
     }
+    P1.UsarHabilidad(P1.Pokemon.Placaje, "Batallando");
 }
 
 async function PresentacionCombate(entrenadores: Entrenador[])

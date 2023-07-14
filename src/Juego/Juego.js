@@ -37,8 +37,6 @@ function Juego() {
         jugador.Pokemones.push(yield ElegirPokemon(pokemonesDisponibles));
         //Entrenador(IA) elige (aleatoriamente) a un pokemon disponible
         entrenadorIA.Pokemones.push(pokemonesDisponibles[(0, Lib_1.numAleatorio)(pokemonesDisponibles.length)].value);
-        jugador.CambiarOrden();
-        entrenadorIA.CambiarOrden();
         console.log(`TIPOS: ${jugador.Pokemon.Tipo}`);
         console.log(`TIPOS: ${entrenadorIA.Pokemon.Tipo}`);
     });

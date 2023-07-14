@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import { writeDelay } from '../AdditionalFunctions/Lib';
+import { Habilidad, HabilidadPokemon } from './Habilidad';
 
 //Tipo de pokemon = key, superEfectivo = 0, poco efectivo = 1, no es efectivo = 2
 const Tipos: { [tipo: string]: string[][] } = {
@@ -34,20 +35,17 @@ export class Pokemon {
     DefensaEspecial: number = 59;
     Velocidad: number = 51;
     //#endregion
+    
+    Placaje = new HabilidadPokemon("Placaje",this,this.Tipo);
+    Habilidades: HabilidadPokemon[] = [this.Placaje];
 
-    constructor(nombre: string) {
+    constructor(nombre: string = "") {
         this.Nombre = nombre;
     }
     SetNombre(nombre: string) {
         this.Nombre = nombre;
     }
     //veneno: Si la ronda actual es menor a la ronda final, aplicar efecto de veneno al pokemon envenado
-    async Placaje(): Promise<void> {
-        const TipoHabilidad = Tipos[0];
-        // Resto del código de la función Placaje
-        await writeDelay(`${this.Nombre} utiliza ${chalk.grey("Placaje")}...`, 30);
-        await writeDelay(`Daño realizado: ${this.Ataque}`, 30);
-    }
 }
 
 export class Charmander extends Pokemon {
