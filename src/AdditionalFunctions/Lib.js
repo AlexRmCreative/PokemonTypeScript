@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.nuevoNombre = exports.numAleatorio = exports.writeDelay = void 0;
 const inquirer_1 = __importDefault(require("inquirer"));
 //Escribe las letras de izquierda a derecha una por una cada cierto tiempo
-function writeDelay(text, delay) {
+function writeDelay(text, delay = 25) {
     return __awaiter(this, void 0, void 0, function* () {
         let index = 0;
         return new Promise((resolve) => {

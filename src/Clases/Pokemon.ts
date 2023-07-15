@@ -1,6 +1,5 @@
 import chalk from 'chalk';
-import { writeDelay } from '../AdditionalFunctions/Lib';
-import { Habilidad, HabilidadPokemon } from './Habilidad';
+import { HabilidadPokemon } from './Habilidad';
 
 //Tipo de pokemon = key, superEfectivo = 0, poco efectivo = 1, no es efectivo = 2
 const Tipos: { [tipo: string]: string[][] } = {
@@ -23,6 +22,7 @@ const Tipos: { [tipo: string]: string[][] } = {
     /*16*/"Siniestro": [["Fantasma", "Psiquico"], ["Lucha", "Siniestro", "Hada"]],
     /*17*/"Hada": [["Lucha", "Dragon", "Siniestro"], ["Veneno", "Acero", "Fuego"]]
 }
+
 export class Pokemon {
     // #region Estadisticas
     Nombre: string;
@@ -35,10 +35,8 @@ export class Pokemon {
     DefensaEspecial: number = 59;
     Velocidad: number = 51;
     //#endregion
-    
-    Placaje = new HabilidadPokemon("Placaje",this,this.Tipo);
-    Habilidades: HabilidadPokemon[] = [this.Placaje];
-
+    Placaje: HabilidadPokemon = new HabilidadPokemon("Placaje");
+    Habilidades: HabilidadPokemon[] = [new HabilidadPokemon("Placaje")];
     constructor(nombre: string = "") {
         this.Nombre = nombre;
     }

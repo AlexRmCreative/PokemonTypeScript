@@ -17,6 +17,7 @@ const inquirer_1 = __importDefault(require("inquirer"));
 const Lib_1 = require("../AdditionalFunctions/Lib");
 const Pokemon_1 = require("../Clases/Pokemon");
 const Entrenador_1 = require("../Clases/Entrenador");
+const Habilidad_1 = require("../Clases/Habilidad");
 let pokemonSeleccionado = new Pokemon_1.Pokemon("");
 const charmander = new Pokemon_1.Charmander();
 const bulbasaur = new Pokemon_1.Bulbasaur();
@@ -37,8 +38,8 @@ function Juego() {
         jugador.Pokemones.push(yield ElegirPokemon(pokemonesDisponibles));
         //Entrenador(IA) elige (aleatoriamente) a un pokemon disponible
         entrenadorIA.Pokemones.push(pokemonesDisponibles[(0, Lib_1.numAleatorio)(pokemonesDisponibles.length)].value);
-        console.log(`TIPOS: ${jugador.Pokemon.Tipo}`);
-        console.log(`TIPOS: ${entrenadorIA.Pokemon.Tipo}`);
+        const habilidad = new Habilidad_1.HabilidadPokemon("Placaje");
+        habilidad.cast();
     });
 }
 exports.Juego = Juego;

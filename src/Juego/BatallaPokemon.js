@@ -20,7 +20,6 @@ function CombatePokemon(P1, P2) {
         if (entrenadores[1].Pokemon.Velocidad > entrenadores[0].Pokemon.Velocidad) {
             turno = 1;
         }
-        P1.UsarHabilidad(P1.Pokemon.Placaje, "Batallando");
     });
 }
 exports.CombatePokemon = CombatePokemon;

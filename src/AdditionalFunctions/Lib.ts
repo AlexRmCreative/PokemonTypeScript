@@ -1,7 +1,7 @@
 import inquirer, { QuestionCollection } from 'inquirer';
 
 //Escribe las letras de izquierda a derecha una por una cada cierto tiempo
-export async function writeDelay(text: string, delay: number): Promise<void> {
+export async function writeDelay(text: string, delay: number = 25): Promise<void> {
     let index = 0;
 
     return new Promise<void>((resolve) => {

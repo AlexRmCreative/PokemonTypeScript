@@ -3,6 +3,7 @@ import { nuevoNombre, numAleatorio, writeDelay } from '../AdditionalFunctions/Li
 import { Pokemon, Charmander, Bulbasaur, Squirtle } from '../Clases/Pokemon';
 import { CombatePokemon } from './BatallaPokemon';
 import { Entrenador } from '../Clases/Entrenador';
+import { HabilidadPokemon } from '../Clases/Habilidad';
 
 let pokemonSeleccionado = new Pokemon("");
 const charmander = new Charmander();
@@ -26,8 +27,8 @@ export async function Juego(): Promise<void> {
     jugador.Pokemones.push(await ElegirPokemon(pokemonesDisponibles));
     //Entrenador(IA) elige (aleatoriamente) a un pokemon disponible
     entrenadorIA.Pokemones.push(pokemonesDisponibles[numAleatorio(pokemonesDisponibles.length)].value);
-    console.log(`TIPOS: ${jugador.Pokemon.Tipo}`);
-    console.log(`TIPOS: ${entrenadorIA.Pokemon.Tipo}`);
+    const habilidad = new HabilidadPokemon("Placaje");
+    habilidad.cast();
   }
   
   async function ElegirPokemon(lista: {}[]): Promise<Pokemon> {
