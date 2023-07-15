@@ -6,7 +6,7 @@ export class Entrenador
 {
     Nombre: string = "";
     Pokemones: Pokemon[] = [];
-    Pokemon: Pokemon = new Pokemon("");
+    Pokemon: Pokemon = this.Pokemones[0];
     Estado: string;
     constructor(pokemones: Pokemon[] = [])
     {

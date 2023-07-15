@@ -35,7 +35,6 @@ export class Pokemon {
     DefensaEspecial: number = 59;
     Velocidad: number = 51;
     //#endregion
-    Placaje: HabilidadPokemon = new HabilidadPokemon("Placaje");
     Habilidades: HabilidadPokemon[] = [new HabilidadPokemon("Placaje")];
     constructor(nombre: string = "") {
         this.Nombre = nombre;

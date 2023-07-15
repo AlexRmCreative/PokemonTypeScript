@@ -38,7 +38,6 @@ class Pokemon {
         this.DefensaEspecial = 59;
         this.Velocidad = 51;
         //#endregion
-        this.Placaje = new Habilidad_1.HabilidadPokemon("Placaje");
         this.Habilidades = [new Habilidad_1.HabilidadPokemon("Placaje")];
         this.Nombre = nombre;
     }

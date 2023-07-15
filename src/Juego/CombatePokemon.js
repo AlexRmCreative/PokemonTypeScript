@@ -8,8 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CombatePokemon = void 0;
+const inquirer_1 = __importDefault(require("inquirer"));
 const Lib_1 = require("../AdditionalFunctions/Lib");
 function CombatePokemon(P1, P2) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -17,9 +21,10 @@ function CombatePokemon(P1, P2) {
         let turno = 0;
         yield PresentacionCombate(entrenadores);
         //El primer turno lo tendra el entrenador con el pokemon mas veloz
-        if (entrenadores[1].Pokemon.Velocidad > entrenadores[0].Pokemon.Velocidad) {
+        if (P1.Pokemon.Velocidad > P2.Pokemon.Velocidad) {
             turno = 1;
         }
+        MenuBatalla(entrenadores[turno].Pokemon);
     });
 }
 exports.CombatePokemon = CombatePokemon;
@@ -34,4 +39,28 @@ function PresentacionCombate(entrenadores) {
         }
     });
 }
-//# sourceMappingURL=BatallaPokemon.js.map
+function MenuBatalla(pokemonBatallando) {
+    return __awaiter(this, void 0, void 0, function* () {
+        //Utilizando inquirer que creara un menu de seleccion de tipo lista. Más info en: https://www.npmjs.com/package/inquirer/v/8.2.4
+        let habilidadesNombre = [];
+        //Necesitaremos añadir los nombre de las habilidades para añadirlas en un menu
+        pokemonBatallando.Habilidades.forEach(element => {
+            habilidadesNombre.push(element.Nombre);
+        });
+        const question = {
+            type: 'list',
+            name: 'habilidad',
+            message: `Que deberia de hacer ${pokemonBatallando.Nombre}?`,
+            choices: habilidadesNombre
+        };
+        try {
+            const respuesta = yield inquirer_1.default.prompt([question]);
+            console.log("ELIGIO: " + respuesta);
+        }
+        catch (error) {
+            console.error('Ocurrió un error:', error);
+            throw error;
+        }
+    });
+}
+//# sourceMappingURL=CombatePokemon.js.map
