@@ -1,5 +1,9 @@
 import { writeDelay } from "../AdditionalFunctions/Lib";
 
+//Aquí almacenamos las habilidades que pueden tener los pokemons
+//Se le pasa el nombre de la habilidad como parametro en el constructor, comprueba si existe una habilidad con ese nombre.
+
+//IMPORTANTE: las habilidades se usan utilizando la llamada cast(); 
 export class HabilidadPokemon {
     habilidadesPokemon: Record<string, () => void> = {
         Placaje: () => {

@@ -2,6 +2,8 @@ import inquirer, { ListQuestion } from "inquirer";
 import { writeDelay } from "../AdditionalFunctions/Lib";
 import { Entrenador } from "../Clases/Entrenador";
 import { Pokemon } from "../Clases/Pokemon";
+import { error } from "console";
+import { BlobOptions } from "buffer";
 
 export async function CombatePokemon(P1: Entrenador, P2: Entrenador): Promise<void> {
     let entrenadores: Entrenador[] = [P1, P2];
@@ -11,7 +13,7 @@ export async function CombatePokemon(P1: Entrenador, P2: Entrenador): Promise<vo
     if (P1.Pokemon.Velocidad > P2.Pokemon.Velocidad) {
         turno = 1;
     }
-    await MenuBatalla(entrenadores[0].Pokemon);
+    await MenuBatalla(entrenadores[0]);
 }
 
 async function PresentacionCombate(entrenadores: Entrenador[]) {
@@ -25,13 +27,38 @@ async function PresentacionCombate(entrenadores: Entrenador[]) {
     }
 }
 
-async function MenuBatalla(pokemonBatallando: Pokemon): Promise<void> {
+async function MenuBatalla(entrenador: Entrenador): Promise<void> {
+    let inMenu: boolean = false;
+    const options: ListQuestion = {
+        type: 'list',
+        name: 'option',
+        choices: ["Atacar", "Cambiar Pokemon", "Mochila", "Huir"]
+    };
+
+    try {
+        const answer = await inquirer.prompt(options);
+        if(answer.option == "Atacar")
+        {
+            inMenu = true;
+        }
+    } catch (error) {
+        console.error('Ocurrió un error:', error);
+        throw error;
+    }
+    while(inMenu != false)
+    {
+        
+    }
+}
+
+async function MenuHabilidades(pokemonBatallando: Pokemon): Promise<boolean> {
     //Utilizando inquirer que creara un menu de seleccion de tipo lista. Más info en: https://www.npmjs.com/package/inquirer/v/8.2.4
     let habilidadesNombre: string[] = [];
     //Necesitaremos añadir los nombre de las habilidades para añadirlas en un menu
     pokemonBatallando.Habilidades.forEach(element => {
         habilidadesNombre.push(element.Nombre);
     });
+    habilidadesNombre.push("Retroceder");
 
     const question: ListQuestion = {
         type: 'list',
@@ -41,7 +68,17 @@ async function MenuBatalla(pokemonBatallando: Pokemon): Promise<void> {
     };
 
     try {
-        const respuesta = await inquirer.prompt([question]);
+        let respuesta = await inquirer.prompt(question);
+        const habilidadSeleccionada = pokemonBatallando.Habilidades.find(hab => hab.Nombre === respuesta.habilidad);
+        if (habilidadSeleccionada) {
+            habilidadSeleccionada.cast();
+            return true;
+        } else if (habilidadSeleccionada == habilidadesNombre[habilidadesNombre.length]) {
+            return true;
+        } 
+        else {
+            throw error("Habilidad no encontrada");
+        }
     } catch (error) {
         console.error('Ocurrió un error:', error);
         throw error;

@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CombatePokemon = void 0;
 const inquirer_1 = __importDefault(require("inquirer"));
 const Lib_1 = require("../AdditionalFunctions/Lib");
+const console_1 = require("console");
 function CombatePokemon(P1, P2) {
     return __awaiter(this, void 0, void 0, function* () {
         let entrenadores = [P1, P2];
@@ -24,7 +25,7 @@ function CombatePokemon(P1, P2) {
         if (P1.Pokemon.Velocidad > P2.Pokemon.Velocidad) {
             turno = 1;
         }
-        MenuBatalla(entrenadores[turno].Pokemon);
+        yield MenuBatalla(entrenadores[0]);
     });
 }
 exports.CombatePokemon = CombatePokemon;
@@ -39,7 +40,26 @@ function PresentacionCombate(entrenadores) {
         }
     });
 }
-function MenuBatalla(pokemonBatallando) {
+function MenuBatalla(entrenador) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const options = {
+            type: 'list',
+            name: 'option',
+            choices: ["Atacar", "Cambiar Pokemon", "Mochila", "Huir"]
+        };
+        try {
+            const answer = yield inquirer_1.default.prompt(options);
+            if (answer.option == "Atacar") {
+                MenuHabilidades(entrenador.Pokemon);
+            }
+        }
+        catch (error) {
+            console.error('Ocurrió un error:', error);
+            throw error;
+        }
+    });
+}
+function MenuHabilidades(pokemonBatallando) {
     return __awaiter(this, void 0, void 0, function* () {
         //Utilizando inquirer que creara un menu de seleccion de tipo lista. Más info en: https://www.npmjs.com/package/inquirer/v/8.2.4
         let habilidadesNombre = [];
@@ -47,6 +67,7 @@ function MenuBatalla(pokemonBatallando) {
         pokemonBatallando.Habilidades.forEach(element => {
             habilidadesNombre.push(element.Nombre);
         });
+        habilidadesNombre.push("Retroceder");
         const question = {
             type: 'list',
             name: 'habilidad',
@@ -54,8 +75,17 @@ function MenuBatalla(pokemonBatallando) {
             choices: habilidadesNombre
         };
         try {
-            const respuesta = yield inquirer_1.default.prompt([question]);
-            console.log("ELIGIO: " + respuesta);
+            let respuesta = yield inquirer_1.default.prompt(question);
+            const habilidadSeleccionada = pokemonBatallando.Habilidades.find(hab => hab.Nombre === respuesta.habilidad);
+            if (habilidadSeleccionada) {
+                habilidadSeleccionada.cast();
+            }
+            else if (habilidadSeleccionada == habilidadesNombre[habilidadesNombre.length]) {
+                console.log("Retrocediendo...");
+            }
+            else {
+                throw (0, console_1.error)("Habilidad no encontrada");
+            }
         }
         catch (error) {
             console.error('Ocurrió un error:', error);
